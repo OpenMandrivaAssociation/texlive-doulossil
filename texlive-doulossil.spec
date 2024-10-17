@@ -3,7 +3,7 @@ Version:	63255
 Release:	2
 Summary:	A font for typesetting the International Phonetic Alphabet (IPA)
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/doulossil
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/doulossil
 License:	ofl
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/doulossil.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/doulossil.doc.r%{version}.tar.xz

@@ -1,36 +1,22 @@
-Name:		texlive-doulossil
-Version:	63255
-Release:	2
+%global tl_name doulossil
+%global tl_revision 63255
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.1
+Release:	%{tl_revision}.1
 Summary:	A font for typesetting the International Phonetic Alphabet (IPA)
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/doulossil
+URL:		https://www.ctan.org/tex-archive/fonts/doulossil
 License:	ofl
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/doulossil.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/doulossil.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/doulossil.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/doulossil.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This package provides the IPA font Doulos SIL in TrueType
-format.
+This package provides the IPA font Doulos SIL in TrueType format.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/fonts/truetype/public/doulossil
-%doc %{_texmfdistdir}/doc/fonts/doulossil
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
